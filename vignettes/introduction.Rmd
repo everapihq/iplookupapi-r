@@ -1,0 +1,36 @@
+---
+title: "introduction to iplookupapi"
+author: Dominik Kukacka
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Introduction
+
+`iplookupapi` is the official package for accessing currency conversion data from [iplookupapi.com](https://iplookupapi.com). The API requires a registered API key. The free plan provides 100 free monthly requests. You can register an API key [here](https://app.iplookupapi.com/register). [Premium plans](https://iplookupapi.com/pricing/) provide access to more requests and more data endpoints. The full API documentation can be found [here](https://iplookupapi.com/docs/)
+
+## Setting up authentication
+
+After registering your API key, set your API key locally by calling the helper function `iplookupapi_api_key()` or by manually calling `Sys.setenv(IPLOOKUPAPI_API_KEY = <key>)`.
+
+## Making your first API request
+
+Call `get_ip_info()` to retrieve all IP information from your client's IP address. Add an IP address as parameter and you will retrieve all information about this specific IP, e.g. `get_ip_info(0.0.0.0)`.
+
+## Available Functions
+
+* `get_api_status()` - can be used to check whether the API is available. Requests do not count towards your monthly request volume. Information about your API key are provided. Available in `free & paid` plans.
+* `get_ip_info()` - provides you with information about any IP address. Available in `free & paid` plans.
+
+Please read our [API documentation](https://iplookupapi.com/docs/) for all information.
